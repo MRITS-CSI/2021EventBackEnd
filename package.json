@@ -1,18 +1,22 @@
 {
-  "name": "2021EventBackEnd",
-  "version": "1.0.0",
-  "description": "Backend for CSI project",
-  "main": "index.js",
-  "repository": "https://github.com/MRITS-CSI/2021EventBackEnd.git",
-  "author": "darahaas <ndarahaas@gmail.com> , arunarram <arun.arram13@gmail.com>",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.0",
-    "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
-  }
+	"name": "2021eventbackend",
+	"version": "1.0.0",
+	"description": "Backend for CSI project",
+	"main": "index.js",
+	"repository": "https://github.com/MRITS-CSI/2021EventBackEnd.git",
+	"author": "darahaas <ndarahaas@gmail.com> , arunarram <arun.arram13@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"start": "nodemon server.js"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^6.1.0",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.15"
+	}
 }
