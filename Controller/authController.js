@@ -20,7 +20,7 @@ exports.login = async (req, res) => {
 					// secure: true,
 				};
 				res.cookie('jwt', token, cookieOptions);
-				res.status(200).json({ status: 'ok', token });
+				res.status(200).json({ status: 'ok', token, user });
 			} else {
 				res.status(404).json({ status: 'User not found' });
 			}
@@ -57,7 +57,7 @@ exports.checkToken = async (req, res) => {
 			if (!user) {
 				return res.status(404).json({ message: 'User not found' });
 			}
-			res.status(200).json({ status: 'verified' });
+			res.status(200).json({ status: 'verified', ...user });
 		} else {
 			res.status(400).json({
 				message: 'Missing proper access rights',
