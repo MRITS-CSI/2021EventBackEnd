@@ -6,7 +6,7 @@ exports.login = async (req, res) => {
 		const { username, password } = req.body;
 		if (username && password) {
 			const user = await User.findOne({ teamUsername: username });
-			if (user && user.checkPass(password, user.password)) {
+			if (user && (await user.checkPass(password, user.password))) {
 				let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
 					expiresIn: process.env.JWT_SECRET_EXPIRATION,
 				});
@@ -22,7 +22,7 @@ exports.login = async (req, res) => {
 				res.cookie('jwt', token, cookieOptions);
 				res.status(200).json({ status: 'ok', token, user });
 			} else {
-				res.status(404).json({ status: 'User not found' });
+				res.status(404).json({ status: 'User not found / Wrong Password' });
 			}
 		} else {
 			res

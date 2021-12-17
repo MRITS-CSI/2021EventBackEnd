@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
 	teamUsername: {
 		type: String,
 		required: true,
-		unique:true
+		unique: true,
 	},
 	password: {
 		type: String,
@@ -22,15 +22,17 @@ const UserSchema = new mongoose.Schema({
 	},
 	paid: Boolean,
 	cardsGambitScore: Number,
-	pass:{
-		type:String,
-		required:true
+	pass: {
+		type: String,
+		required: true,
 	},
 	submitted: {
 		type: Boolean,
 		default: false,
 		required: true,
 	},
+	secondRound: Boolean,
+	thirdRound: Boolean,
 });
 UserSchema.pre('save', async function (next) {
 	let hashedPass = await bcrypt.hash(this.password, 16);
