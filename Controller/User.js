@@ -14,9 +14,21 @@ exports.CreateUser = async (req, res) => {
 };
 exports.GetUser = async (req, res) => {
 	try {
-		const Data = await User.find();
+		let query =  User.find();
+		if(req.query.sort){
+			query=query.sort(req.query.sort)
+		}
+		if(req.query.limit && req.query.page){
+			let limit = req.query.limit
+			let skip = (req.query.page -1)*limit
+			query=query.skip(skip).limit(limit)
+		}
 
-		res.status(200).json(Data);
+
+		const data = await query
+
+
+		res.status(200).json(data);
 	} catch (err) {
 		res.status(404).json({
 			status: 'Error',

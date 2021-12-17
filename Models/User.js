@@ -9,6 +9,7 @@ const UserSchema = new mongoose.Schema({
 	teamUsername: {
 		type: String,
 		required: true,
+		unique:true
 	},
 	password: {
 		type: String,
@@ -21,6 +22,10 @@ const UserSchema = new mongoose.Schema({
 	},
 	paid: Boolean,
 	cardsGambitScore: Number,
+	pass:{
+		type:String,
+		required:true
+	},
 	submitted: {
 		type: Boolean,
 		default: false,
