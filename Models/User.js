@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 	},
 	paid: Boolean,
-	cardsGambitScore: String,
+	cardsGambitScore: Number,
 	submitted: {
 		type: Boolean,
 		default: false,
