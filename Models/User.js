@@ -31,8 +31,16 @@ const UserSchema = new mongoose.Schema({
 		default: false,
 		required: true,
 	},
-	secondRound: Boolean,
-	thirdRound: Boolean,
+	secondRound: {
+		type:Boolean,
+		default:false,
+		required:true
+	},
+	thirdRound: {
+		type:Boolean,
+		default:false,
+		required:true
+	},
 });
 UserSchema.pre('save', async function (next) {
 	let hashedPass = await bcrypt.hash(this.password, 16);
