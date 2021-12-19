@@ -18,6 +18,12 @@ const CardsSchema = new mongoose.Schema({
 		enum: ['SPADE', 'HEART', 'CLOVER', 'DIAMOND'],
 		required: true,
 	},
+
+	qType: {
+		type: Boolean,
+		default: false,
+		required: true,
+	},
 });
 
 const Cards = mongoose.model('cards', CardsSchema);
