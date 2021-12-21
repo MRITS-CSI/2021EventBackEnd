@@ -11,15 +11,7 @@ exports.login = async (req, res) => {
 					expiresIn: process.env.JWT_SECRET_EXPIRATION,
 				});
 
-				const cookieOptions = {
-					expires: new Date(
-						Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 60 * 60 * 1000
-					),
-					httpOnly: true,
-
-					// secure: true,
-				};
-				res.cookie('jwt', token, cookieOptions);
+				//res.cookie('jwt', token, cookieOptions);
 				res.status(200).json({ status: 'ok', token, user });
 			} else {
 				res.status(404).json({ status: 'User not found / Wrong Password' });
