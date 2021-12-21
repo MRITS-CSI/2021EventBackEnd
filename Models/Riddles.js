@@ -9,6 +9,11 @@ const RiddlesSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	picked: {
+		type: Boolean,
+		default: false,
+		required: true,
+	},
 });
 
 const Riddles = mongoose.model('riddle', RiddlesSchema);

@@ -18,11 +18,9 @@ exports.CreateUser = async (req, res) => {
       password,
       pass: password,
     };
-
-    await sendMail(req.body.email, teamUserName, password, +users.length + 1);
     const Data = await User.create(reqBody);
-
     res.status(200).json(Data);
+    await sendMail(req.body.email, teamUserName, password, +users.length + 1);
   } catch (err) {
     console.log(err);
     res.status(404).json({
